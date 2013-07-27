@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A78FFAC220AB437B874E5B9E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 259EAFC1CB314BB5BAAB6A30 /* libPods.a */; };
+		B014EC7017A2BAE000F042EE /* IMDropletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B014EC6F17A2BAE000F042EE /* IMDropletTableViewCell.m */; };
 		B020E56917A06CDC00644E52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B020E56817A06CDC00644E52 /* UIKit.framework */; };
 		B020E56B17A06CDC00644E52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B020E56A17A06CDC00644E52 /* Foundation.framework */; };
 		B020E56D17A06CDC00644E52 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B020E56C17A06CDC00644E52 /* CoreGraphics.framework */; };
@@ -16,9 +18,20 @@
 		B020E57B17A06CDC00644E52 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B020E57A17A06CDC00644E52 /* Default.png */; };
 		B020E57D17A06CDC00644E52 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B020E57C17A06CDC00644E52 /* Default@2x.png */; };
 		B020E57F17A06CDC00644E52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B020E57E17A06CDC00644E52 /* Default-568h@2x.png */; };
+		B020E58A17A06E1900644E52 /* IMDropletsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B020E58917A06E1900644E52 /* IMDropletsListTableViewController.m */; };
+		B020E59017A06E5300644E52 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B020E58D17A06E5300644E52 /* RequestManager.m */; };
+		B020E59117A06E5300644E52 /* WebAPIHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B020E58F17A06E5300644E52 /* WebAPIHTTPClient.m */; };
+		B0A0075C17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A0075B17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m */; };
+		B0A852D917A3010A0065DEE6 /* IMAddDropletTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A852D817A3010A0065DEE6 /* IMAddDropletTableViewController.m */; };
+		B0A852DD17A302660065DEE6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0A852DF17A302660065DEE6 /* Localizable.strings */; };
+		B0A852E617A45FE70065DEE6 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A852E517A45FE70065DEE6 /* iPhoneStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		259EAFC1CB314BB5BAAB6A30 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8193C1158C4D4D10A44F0500 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		B014EC6E17A2BAE000F042EE /* IMDropletTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDropletTableViewCell.h; sourceTree = "<group>"; };
+		B014EC6F17A2BAE000F042EE /* IMDropletTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDropletTableViewCell.m; sourceTree = "<group>"; };
 		B020E56517A06CDC00644E52 /* DropletsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropletsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B020E56817A06CDC00644E52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B020E56A17A06CDC00644E52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -32,6 +45,20 @@
 		B020E57A17A06CDC00644E52 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B020E57C17A06CDC00644E52 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B020E57E17A06CDC00644E52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B020E58817A06E1900644E52 /* IMDropletsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDropletsListTableViewController.h; sourceTree = "<group>"; };
+		B020E58917A06E1900644E52 /* IMDropletsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDropletsListTableViewController.m; sourceTree = "<group>"; };
+		B020E58C17A06E5300644E52 /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
+		B020E58D17A06E5300644E52 /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
+		B020E58E17A06E5300644E52 /* WebAPIHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebAPIHTTPClient.h; sourceTree = "<group>"; };
+		B020E58F17A06E5300644E52 /* WebAPIHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebAPIHTTPClient.m; sourceTree = "<group>"; };
+		B0A0075A17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDropletDetailsTableViewController.h; sourceTree = "<group>"; };
+		B0A0075B17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDropletDetailsTableViewController.m; sourceTree = "<group>"; };
+		B0A852D717A3010A0065DEE6 /* IMAddDropletTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAddDropletTableViewController.h; sourceTree = "<group>"; };
+		B0A852D817A3010A0065DEE6 /* IMAddDropletTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAddDropletTableViewController.m; sourceTree = "<group>"; };
+		B0A852DA17A3021B0065DEE6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B0A852DE17A302660065DEE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0A852E017A3026A0065DEE6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0A852E517A45FE70065DEE6 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,18 +69,29 @@
 				B020E56917A06CDC00644E52 /* UIKit.framework in Frameworks */,
 				B020E56B17A06CDC00644E52 /* Foundation.framework in Frameworks */,
 				B020E56D17A06CDC00644E52 /* CoreGraphics.framework in Frameworks */,
+				A78FFAC220AB437B874E5B9E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B014EC6D17A2BAC800F042EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B014EC6E17A2BAE000F042EE /* IMDropletTableViewCell.h */,
+				B014EC6F17A2BAE000F042EE /* IMDropletTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B020E55C17A06CDC00644E52 = {
 			isa = PBXGroup;
 			children = (
 				B020E56E17A06CDC00644E52 /* DropletsManager */,
 				B020E56717A06CDC00644E52 /* Frameworks */,
 				B020E56617A06CDC00644E52 /* Products */,
+				8193C1158C4D4D10A44F0500 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +109,7 @@
 				B020E56817A06CDC00644E52 /* UIKit.framework */,
 				B020E56A17A06CDC00644E52 /* Foundation.framework */,
 				B020E56C17A06CDC00644E52 /* CoreGraphics.framework */,
+				259EAFC1CB314BB5BAAB6A30 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -80,6 +119,10 @@
 			children = (
 				B020E57717A06CDC00644E52 /* IMAppDelegate.h */,
 				B020E57817A06CDC00644E52 /* IMAppDelegate.m */,
+				B0A852E517A45FE70065DEE6 /* iPhoneStoryboard.storyboard */,
+				B020E58B17A06E5300644E52 /* Networking */,
+				B020E58717A06DFA00644E52 /* ViewControllers */,
+				B014EC6D17A2BAC800F042EE /* Views */,
 				B020E56F17A06CDC00644E52 /* Supporting Files */,
 			);
 			path = DropletsManager;
@@ -95,8 +138,33 @@
 				B020E57A17A06CDC00644E52 /* Default.png */,
 				B020E57C17A06CDC00644E52 /* Default@2x.png */,
 				B020E57E17A06CDC00644E52 /* Default-568h@2x.png */,
+				B0A852DF17A302660065DEE6 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B020E58717A06DFA00644E52 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B020E58817A06E1900644E52 /* IMDropletsListTableViewController.h */,
+				B020E58917A06E1900644E52 /* IMDropletsListTableViewController.m */,
+				B0A0075A17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.h */,
+				B0A0075B17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m */,
+				B0A852D717A3010A0065DEE6 /* IMAddDropletTableViewController.h */,
+				B0A852D817A3010A0065DEE6 /* IMAddDropletTableViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B020E58B17A06E5300644E52 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B020E58C17A06E5300644E52 /* RequestManager.h */,
+				B020E58D17A06E5300644E52 /* RequestManager.m */,
+				B020E58E17A06E5300644E52 /* WebAPIHTTPClient.h */,
+				B020E58F17A06E5300644E52 /* WebAPIHTTPClient.m */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +174,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B020E58217A06CDC00644E52 /* Build configuration list for PBXNativeTarget "DropletsManager" */;
 			buildPhases = (
+				5F581B57E7394B2EA8CBB2AA /* Check Pods Manifest.lock */,
 				B020E56117A06CDC00644E52 /* Sources */,
 				B020E56217A06CDC00644E52 /* Frameworks */,
 				B020E56317A06CDC00644E52 /* Resources */,
+				073861BEFB6F4EE7AED848AA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,6 +205,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 			);
 			mainGroup = B020E55C17A06CDC00644E52;
 			productRefGroup = B020E56617A06CDC00644E52 /* Products */;
@@ -152,6 +223,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B020E57317A06CDC00644E52 /* InfoPlist.strings in Resources */,
+				B0A852DD17A302660065DEE6 /* Localizable.strings in Resources */,
+				B0A852E617A45FE70065DEE6 /* iPhoneStoryboard.storyboard in Resources */,
 				B020E57B17A06CDC00644E52 /* Default.png in Resources */,
 				B020E57D17A06CDC00644E52 /* Default@2x.png in Resources */,
 				B020E57F17A06CDC00644E52 /* Default-568h@2x.png in Resources */,
@@ -160,6 +233,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		073861BEFB6F4EE7AED848AA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		5F581B57E7394B2EA8CBB2AA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B020E56117A06CDC00644E52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -167,6 +271,12 @@
 			files = (
 				B020E57517A06CDC00644E52 /* main.m in Sources */,
 				B020E57917A06CDC00644E52 /* IMAppDelegate.m in Sources */,
+				B020E58A17A06E1900644E52 /* IMDropletsListTableViewController.m in Sources */,
+				B020E59017A06E5300644E52 /* RequestManager.m in Sources */,
+				B0A852D917A3010A0065DEE6 /* IMAddDropletTableViewController.m in Sources */,
+				B020E59117A06E5300644E52 /* WebAPIHTTPClient.m in Sources */,
+				B014EC7017A2BAE000F042EE /* IMDropletTableViewCell.m in Sources */,
+				B0A0075C17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,8 +287,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				B020E57217A06CDC00644E52 /* en */,
+				B0A852DA17A3021B0065DEE6 /* ru */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B0A852DF17A302660065DEE6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0A852DE17A302660065DEE6 /* en */,
+				B0A852E017A3026A0065DEE6 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -244,7 +364,9 @@
 		};
 		B020E58317A06CDC00644E52 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8193C1158C4D4D10A44F0500 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vladimir Starkov (L8M6RE5RU3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DropletsManager/DropletsManager-Prefix.pch";
 				INFOPLIST_FILE = "DropletsManager/DropletsManager-Info.plist";
@@ -255,7 +377,9 @@
 		};
 		B020E58417A06CDC00644E52 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8193C1158C4D4D10A44F0500 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vladimir Starkov (L8M6RE5RU3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DropletsManager/DropletsManager-Prefix.pch";
 				INFOPLIST_FILE = "DropletsManager/DropletsManager-Info.plist";
@@ -283,6 +407,7 @@
 				B020E58417A06CDC00644E52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

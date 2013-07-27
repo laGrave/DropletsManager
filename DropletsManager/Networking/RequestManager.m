@@ -157,6 +157,20 @@ static RequestManager *_sharedItem;
                  }];
 }
 
+
+- (void)destroyDropletWithIdentifier:(NSString *)identifier
+                     completionBlock:(void(^)(id JSON))completionBlock {
+
+    [self sendGetRequestWithPath:[NSString stringWithFormat:@"droplets/%@/destroy/?", identifier]
+                      parameters:nil completionBlock:^(id JSON){
+        NSString *status = JSON[@"status"];
+        if ([status isEqualToString:@"OK"]) {
+            completionBlock(JSON[@"event_id"]);
+        }
+    }];
+}
+
+
 - (void)shutdownDropletWithIdentifier:(NSString *)identifier
                       completionBlock:(void (^)(id))completionBlock {
 

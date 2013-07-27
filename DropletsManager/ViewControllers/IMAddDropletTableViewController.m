@@ -10,9 +10,9 @@
 
 #import "RequestManager.h"
 
-@interface IMAddDropletTableViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface IMAddDropletTableViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
-@property (nonatomic, weak) UIPickerView *sizePickerView;
+@property (nonatomic, weak) UIPickerView *pickerView;
 
 @property (nonatomic, strong) NSArray *sizesArray;
 @property (nonatomic, strong) NSArray *imagesArray;
@@ -29,6 +29,8 @@
 
 @property (nonatomic, weak) UIButton *activeSelectButton;
 @property (nonatomic, weak) UIButton *activeEnterButton;
+
+@property (nonatomic, strong) NSMutableDictionary *dropletDict;
 
 @end
 
@@ -53,6 +55,12 @@
     [self.enterSizeButton   setTitle:NSLocalizedString(@"Enter", nil) forState:UIControlStateNormal];
     [self.enterImageButton  setTitle:NSLocalizedString(@"Enter", nil) forState:UIControlStateNormal];
     [self.enterRegionButton setTitle:NSLocalizedString(@"Enter", nil) forState:UIControlStateNormal];
+    
+    [self.selectSizeButton setTitle:NSLocalizedString(@"Select Size", nil) forState:UIControlStateNormal];
+    [self.selectImageButton setTitle:NSLocalizedString(@"Select Image", nil) forState:UIControlStateNormal];
+    [self.selectRegionButton setTitle:NSLocalizedString(@"Select Region", nil) forState:UIControlStateNormal];
+    
+    self.dropletDict = [[NSMutableDictionary alloc] init];
 }
 
 
@@ -72,7 +80,7 @@
     pickerView.frame = pickerViewFrame;
     
     [self.view addSubview:pickerView];
-    self.sizePickerView = pickerView;
+    self.pickerView = pickerView;
     
     [UIView animateWithDuration:0.4 animations:^{
         pickerViewFrame.origin.y -= pickerViewFrame.size.height;
@@ -90,7 +98,15 @@
 
 - (IBAction)doneButtonPressed:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    if ([self checkForParameters]) {
+        [[RequestManager sharedItem] newDropletWithName:self.dropletDict[@"name"]
+                                                 sizeID:self.dropletDict[@"size_id"]
+                                                imageID:self.dropletDict[@"image_id"]
+                                               regionID:self.dropletDict[@"region_id"]
+                                                sshKeys:nil completionBlock:^(id JSON){
+                                                    [self dismissViewControllerAnimated:YES completion:NULL];
+                                                }];
+    }
 }
 
 
@@ -120,18 +136,56 @@
     
     [UIView animateWithDuration:0.4
                      animations:^{
-                         CGRect pickerViewFrame = self.sizePickerView.frame;
+                         CGRect pickerViewFrame = self.pickerView.frame;
                          pickerViewFrame.origin.y += pickerViewFrame.size.height;
-                         self.sizePickerView.frame = pickerViewFrame;
-                         
+                         self.pickerView.frame = pickerViewFrame;
                          sender.alpha = 0.0f;
                      }
                      completion:^(BOOL finished){
-                         [self.sizePickerView removeFromSuperview];
+                         [self getPickerViewValue];
+                         [self.pickerView removeFromSuperview];
                      }];
 }
 
 
+- (void)getPickerViewValue {
+
+    NSUInteger index = [self.pickerView selectedRowInComponent:0];
+    NSArray *array = nil;
+    NSString *key = nil;
+    switch (self.pickerView.tag) {
+        case 1:
+            array = self.sizesArray;
+            key = @"size_id";
+            break;
+        case 2:
+            array = self.imagesArray;
+            key = @"image_id";
+            break;
+        case 3:
+            array = self.regionsArray;
+            key = @"region_id";
+            break;
+        default:
+            break;
+    }
+    NSDictionary *dict = array[index];
+    [self.dropletDict setValue:dict[@"id"] forKey:key];
+}
+
+
+- (BOOL)checkForParameters {
+
+    if (!self.dropletDict[@"name"])
+        return NO;
+    if (!self.dropletDict[@"size_id"])
+        return NO;
+    if (!self.dropletDict[@"image_id"])
+        return NO;
+    if (!self.dropletDict[@"region_id"])
+        return NO;
+    return YES;
+}
 
 
 #pragma mark -
@@ -220,6 +274,23 @@
             break;
     }
     [self.activeSelectButton setTitle:buttonText forState:UIControlStateNormal];
+}
+
+
+#pragma mark -
+#pragma mark - UITextFieldDelegate 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+
+    [self.dropletDict setValue:textField.text forKey:@"name"];
+    return YES;
 }
 
 @end

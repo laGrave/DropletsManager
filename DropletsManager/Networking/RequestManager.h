@@ -33,6 +33,8 @@
                   regionID:(NSString *)regionID
                    sshKeys:(NSArray *)sshKeys
            completionBlock:(void (^)(id))completionBlock;
+- (void)destroyDropletWithIdentifier:(NSString *)identifier
+                     completionBlock:(void(^)(id JSON))completionBlock;
 - (void)shutdownDropletWithIdentifier:(NSString *)identifier
                       completionBlock:(void(^)(id JSON))completionBlock;
 - (void)powerOnDropletWithIdentifier:(NSString *)identifier

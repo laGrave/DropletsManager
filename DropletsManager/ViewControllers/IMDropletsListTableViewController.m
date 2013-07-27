@@ -11,7 +11,7 @@
 #import "IMDropletTableViewCell.h"
 #import "IMDropletDetailsTableViewController.h"
 
-@interface IMDropletsListTableViewController ()
+@interface IMDropletsListTableViewController () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray *droplets;
 
@@ -93,10 +93,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
  
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Вы уверены, что хотите удалить данный сервер?" delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+        deleteAlert.tag = indexPath.row;
+        [deleteAlert show];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
@@ -111,6 +112,22 @@
     IMDropletDetailsTableViewController *dropletDetailsTableVC = [self.storyboard instantiateViewControllerWithIdentifier:[[IMDropletDetailsTableViewController class] description]];
     dropletDetailsTableVC.dropletID = droplet[@"id"];
     [self.navigationController pushViewController:dropletDetailsTableVC animated:YES];
+}
+
+
+#pragma mark -
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex == alertView.firstOtherButtonIndex) {
+//        [self.table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:alertView.tag inSection:0]]
+//                              withRowAnimation:UITableViewRowAnimationFade];
+        NSDictionary *dropletDict = [self.droplets objectAtIndex:alertView.tag];
+        [[RequestManager sharedItem] destroyDropletWithIdentifier:dropletDict[@"id"] completionBlock:^(id JSON){
+            [self.tableView reloadData];
+        }];
+    }
 }
 
 @end
