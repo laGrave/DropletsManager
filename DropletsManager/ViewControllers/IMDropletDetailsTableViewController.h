@@ -10,6 +10,6 @@
 
 @interface IMDropletDetailsTableViewController : UITableViewController
 
-@property (nonatomic, strong) NSString *dropletID;
+@property (nonatomic, strong) NSDictionary *dropletDict;
 
 @end

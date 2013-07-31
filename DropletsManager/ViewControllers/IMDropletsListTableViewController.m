@@ -51,7 +51,7 @@
     [[RequestManager sharedItem] getDropletsListWithCompletionBlock:^(id JSON){
         NSLog(@"%@", JSON);
         self.droplets = JSON;
-        [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
         [refresh endRefreshing];
     }];
 }
@@ -110,7 +110,7 @@
     NSDictionary *droplet = [self.droplets objectAtIndex:indexPath.row];
     
     IMDropletDetailsTableViewController *dropletDetailsTableVC = [self.storyboard instantiateViewControllerWithIdentifier:[[IMDropletDetailsTableViewController class] description]];
-    dropletDetailsTableVC.dropletID = droplet[@"id"];
+    dropletDetailsTableVC.dropletDict = droplet;
     [self.navigationController pushViewController:dropletDetailsTableVC animated:YES];
 }
 
@@ -125,7 +125,7 @@
 //                              withRowAnimation:UITableViewRowAnimationFade];
         NSDictionary *dropletDict = [self.droplets objectAtIndex:alertView.tag];
         [[RequestManager sharedItem] destroyDropletWithIdentifier:dropletDict[@"id"] completionBlock:^(id JSON){
-            [self.tableView reloadData];
+//            [self.tableView reloadData];
         }];
     }
 }

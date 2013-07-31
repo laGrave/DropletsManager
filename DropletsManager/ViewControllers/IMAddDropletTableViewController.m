@@ -13,6 +13,7 @@
 @interface IMAddDropletTableViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
 @property (nonatomic, strong) NSArray *sizesArray;
 @property (nonatomic, strong) NSArray *imagesArray;
@@ -51,6 +52,8 @@
     [[RequestManager sharedItem] getRegionsWithCompletionBlock:^(id JSON){
         self.regionsArray = JSON;
     }];
+    
+    self.nameTextField.placeholder = NSLocalizedString(@"enter droplet's name", nil);
     
     [self.enterSizeButton   setTitle:NSLocalizedString(@"Enter", nil) forState:UIControlStateNormal];
     [self.enterImageButton  setTitle:NSLocalizedString(@"Enter", nil) forState:UIControlStateNormal];

@@ -13,3 +13,6 @@
 "Select Size" = "Select Size";
 "Select Image" = "Select Image";
 "Select Region" = "Select Region";
+"enter droplet's name" = "enter droplet's name";
+"This method allows you to poweron a powered off droplet." = "This method allows you to poweron a powered off droplet.";
+"This method allows you to shutdown a running droplet. The droplet will remain in your account." = "This method allows you to shutdown a running droplet. The droplet will remain in your account.";

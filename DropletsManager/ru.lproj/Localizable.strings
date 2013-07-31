@@ -13,3 +13,6 @@
 "Select Size" = "Укажите размер";
 "Select Image" = "Выберите образ";
 "Select Region" = "Укажите регион";
+"enter droplet's name" = "Введите название";
+"This method allows you to poweron a powered off droplet." = "Данное действие позволяет запустить выключенный droplet.";
+"This method allows you to shutdown a running droplet. The droplet will remain in your account." = "Данный метод позволяет выключить запущенный droplet. При этом он продолжит отображаться в вашем списке.";

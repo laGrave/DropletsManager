@@ -367,6 +367,7 @@
 			baseConfigurationReference = 8193C1158C4D4D10A44F0500 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vladimir Starkov (L8M6RE5RU3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vladimir Starkov (L8M6RE5RU3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DropletsManager/DropletsManager-Prefix.pch";
 				INFOPLIST_FILE = "DropletsManager/DropletsManager-Info.plist";
@@ -379,7 +380,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8193C1158C4D4D10A44F0500 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vladimir Starkov (L8M6RE5RU3)";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DropletsManager/DropletsManager-Prefix.pch";
 				INFOPLIST_FILE = "DropletsManager/DropletsManager-Info.plist";
