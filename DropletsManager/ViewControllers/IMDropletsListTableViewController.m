@@ -55,6 +55,15 @@
 #pragma mark -
 #pragma mark - instance methods
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([segue.identifier isEqualToString:@"Show settings"]) {
+        UINavigationController *navVC = segue.destinationViewController;
+        IMSettingsViewController *settingsVC = (IMSettingsViewController *)navVC.topViewController;
+        settingsVC.delegate = self;
+    }
+}
+
 - (BOOL)checkForAPIKeys {
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -92,8 +101,8 @@
     
     NSDictionary *droplet = [self.droplets objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = droplet[@"name"];
-    cell.detailTextLabel.text = droplet[@"ip_address"];
+    cell.titleLabel.text = droplet[@"name"];
+    cell.adressLabel.text = droplet[@"ip_address"];
     cell.active = ([droplet[@"status"] isEqualToString:@"active"]) ? YES : NO;
     
     return cell;

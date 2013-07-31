@@ -22,6 +22,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.title = NSLocalizedString(@"Settings", nil);
+    self.clientIDTextField.placeholder = NSLocalizedString(@"enter client ID", nil);
+    self.apiKeyTextField.placeholder = NSLocalizedString(@"enter API key", nil);
+    
     NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
     self.clientIDTextField.text = [defaults valueForKey:@"Client ID"];
     self.apiKeyTextField.text = [defaults valueForKey:@"API Key"];
