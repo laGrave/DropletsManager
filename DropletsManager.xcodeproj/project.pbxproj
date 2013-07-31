@@ -25,6 +25,7 @@
 		B0A852D917A3010A0065DEE6 /* IMAddDropletTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A852D817A3010A0065DEE6 /* IMAddDropletTableViewController.m */; };
 		B0A852DD17A302660065DEE6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0A852DF17A302660065DEE6 /* Localizable.strings */; };
 		B0A852E617A45FE70065DEE6 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A852E517A45FE70065DEE6 /* iPhoneStoryboard.storyboard */; };
+		DCCF60F517A8DC36000D6D4F /* IMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCF60F417A8DC36000D6D4F /* IMLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,8 @@
 		B0A852DE17A302660065DEE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0A852E017A3026A0065DEE6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0A852E517A45FE70065DEE6 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		DCCF60F317A8DC36000D6D4F /* IMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMLoginViewController.h; sourceTree = "<group>"; };
+		DCCF60F417A8DC36000D6D4F /* IMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 				B0A0075B17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m */,
 				B0A852D717A3010A0065DEE6 /* IMAddDropletTableViewController.h */,
 				B0A852D817A3010A0065DEE6 /* IMAddDropletTableViewController.m */,
+				DCCF60F317A8DC36000D6D4F /* IMLoginViewController.h */,
+				DCCF60F417A8DC36000D6D4F /* IMLoginViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCCF60F517A8DC36000D6D4F /* IMLoginViewController.m in Sources */,
 				B020E57517A06CDC00644E52 /* main.m in Sources */,
 				B020E57917A06CDC00644E52 /* IMAppDelegate.m in Sources */,
 				B020E58A17A06E1900644E52 /* IMDropletsListTableViewController.m in Sources */,

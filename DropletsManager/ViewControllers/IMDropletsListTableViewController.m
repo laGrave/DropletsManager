@@ -10,15 +10,15 @@
 #import "RequestManager.h"
 #import "IMDropletTableViewCell.h"
 #import "IMDropletDetailsTableViewController.h"
+#import "IMLoginViewController.h"
 
-@interface IMDropletsListTableViewController () <UIAlertViewDelegate>
+@interface IMDropletsListTableViewController () <UIAlertViewDelegate, IMLoginViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *droplets;
 
 @end
 
 @implementation IMDropletsListTableViewController
-
 
 - (void)viewDidLoad {
     
@@ -33,7 +33,16 @@
 - (void)viewDidAppear:(BOOL)animated {
 
     [super viewDidAppear:animated];
-    [self refresh:nil];
+    
+    if ([self checkForAPIKeys]) {
+        [self refresh:nil];
+    }
+    else {
+        IMLoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:[[IMLoginViewController class] description]];
+        loginVC.delegate = self;
+        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self presentViewController:navVC animated:YES completion:NULL];
+    }
 }
 
 
@@ -45,6 +54,13 @@
 
 #pragma mark -
 #pragma mark - instance methods
+
+- (BOOL)checkForAPIKeys {
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return ([[defaults valueForKey:@"Client ID"] length] && [[defaults valueForKey:@"API Key"] length]);
+}
+
 
 - (void)refresh:(UIRefreshControl *)refresh {
 
@@ -128,6 +144,17 @@
 //            [self.tableView reloadData];
         }];
     }
+}
+
+
+#pragma mark -
+#pragma mark - IMLoginViewControllerDelegate
+
+- (void)loginVCShouldDismiss:(IMLoginViewController *)loginVC {
+
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self refresh:nil];
+    }];
 }
 
 @end
