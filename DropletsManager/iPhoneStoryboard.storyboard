@@ -60,6 +60,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Droplets" id="4wM-N7-Emo">
+                        <barButtonItem key="leftBarButtonItem" image="settings.png" id="g9t-jB-Bxg">
+                            <connections>
+                                <segue destination="Djl-4v-BKk" kind="modal" id="QoB-OU-2MO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FZz-X2-z1c">
                             <connections>
                                 <segue destination="qZE-dh-fMf" kind="modal" id="364-Px-vU4"/>
@@ -321,10 +326,10 @@
             </objects>
             <point key="canvasLocation" x="981" y="0.0"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="gFZ-ia-Tgd">
             <objects>
-                <viewController storyboardIdentifier="IMLoginViewController" id="00u-uL-EWm" customClass="IMLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IMSettingsViewController" id="00u-uL-EWm" customClass="IMSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UwP-S8-5PB"/>
                         <viewControllerLayoutGuide type="bottom" id="trt-E6-oe4"/>
@@ -361,7 +366,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="McL-Ve-MXG">
+                    <navigationItem key="navigationItem" title="Settings" id="McL-Ve-MXG">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="9UT-1S-gNM">
                             <connections>
                                 <action selector="doneButtonPressed:" destination="00u-uL-EWm" id="bMP-dQ-4nv"/>
@@ -369,8 +374,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="apiKeyTextField" destination="RrF-qI-80t" id="Y2u-Qc-gAy"/>
-                        <outlet property="clientIDTextField" destination="zrY-d1-8Sa" id="bAi-wL-zsy"/>
+                        <outlet property="apiKeyTextField" destination="RrF-qI-80t" id="VNZ-cP-38b"/>
+                        <outlet property="clientIDTextField" destination="zrY-d1-8Sa" id="ddN-h7-Uuq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uan-Lz-ViE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -432,6 +437,9 @@
             <point key="canvasLocation" x="207" y="-685"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings.png" width="25" height="25"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

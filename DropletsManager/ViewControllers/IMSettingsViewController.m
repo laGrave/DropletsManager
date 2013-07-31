@@ -1,41 +1,30 @@
 //
-//  IMLoginViewController.m
+//  IMSettingsViewController.m
 //  DropletsManager
 //
 //  Created by Igor Mishchenko on 31.07.13.
 //  Copyright (c) 2013 Igor Mischenko. All rights reserved.
 //
 
-#import "IMLoginViewController.h"
+#import "IMSettingsViewController.h"
 
-@interface IMLoginViewController ()
+@interface IMSettingsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *clientIDTextField;
 @property (weak, nonatomic) IBOutlet UITextField *apiKeyTextField;
 
 @end
 
-@implementation IMLoginViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@implementation IMSettingsViewController
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
     
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
+    self.clientIDTextField.text = [defaults valueForKey:@"Client ID"];
+    self.apiKeyTextField.text = [defaults valueForKey:@"API Key"];
 }
 
 
@@ -56,8 +45,8 @@
         [defaults setValue:self.apiKeyTextField.text forKey:@"API Key"];
         [defaults synchronize];
         
-        if ([self.delegate conformsToProtocol:@protocol(IMLoginViewControllerDelegate)])
-            [self.delegate loginVCShouldDismiss:self];
+        if ([self.delegate conformsToProtocol:@protocol(IMSettingsViewControllerDelegate)])
+            [self.delegate SettingsVCShouldDismiss:self];
         else
             [self dismissViewControllerAnimated:YES completion:NULL];
     }

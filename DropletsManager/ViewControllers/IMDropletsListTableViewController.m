@@ -10,9 +10,9 @@
 #import "RequestManager.h"
 #import "IMDropletTableViewCell.h"
 #import "IMDropletDetailsTableViewController.h"
-#import "IMLoginViewController.h"
+#import "IMSettingsViewController.h"
 
-@interface IMDropletsListTableViewController () <UIAlertViewDelegate, IMLoginViewControllerDelegate>
+@interface IMDropletsListTableViewController () <UIAlertViewDelegate, IMSettingsViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *droplets;
 
@@ -38,9 +38,9 @@
         [self refresh:nil];
     }
     else {
-        IMLoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:[[IMLoginViewController class] description]];
-        loginVC.delegate = self;
-        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        IMSettingsViewController *SettingsVC = [self.storyboard instantiateViewControllerWithIdentifier:[[IMSettingsViewController class] description]];
+        SettingsVC.delegate = self;
+        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:SettingsVC];
         [self presentViewController:navVC animated:YES completion:NULL];
     }
 }
@@ -148,9 +148,9 @@
 
 
 #pragma mark -
-#pragma mark - IMLoginViewControllerDelegate
+#pragma mark - IMSettingsViewControllerDelegate
 
-- (void)loginVCShouldDismiss:(IMLoginViewController *)loginVC {
+- (void)SettingsVCShouldDismiss:(IMSettingsViewController *)SettingsVC {
 
     [self dismissViewControllerAnimated:YES completion:^{
         [self refresh:nil];
