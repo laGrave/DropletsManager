@@ -371,6 +371,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-2Q-He5">
+                                <rect key="frame" x="127" y="241" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Go to site">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J4w-bp-H7f" kind="push" identifier="fetch" id="pWS-2u-ii3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -389,6 +400,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uan-Lz-ViE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="576" y="-685"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Sx8-2z-aHh">
+            <objects>
+                <viewController storyboardIdentifier="IMWebViewController" id="J4w-bp-H7f" customClass="IMWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2ms-hw-hfj"/>
+                        <viewControllerLayoutGuide type="bottom" id="jwu-Wh-LDa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OAs-6Q-SWg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7F-OI-tCo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cTg-Za-S1I">
+                        <barButtonItem key="rightBarButtonItem" title="searching..." id="bZ1-N4-7f4">
+                            <connections>
+                                <action selector="fetchButtonPressed:" destination="J4w-bp-H7f" id="dRk-1T-cCE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="fetchBarButtonItem" destination="bZ1-N4-7f4" id="FbH-Hg-gxu"/>
+                        <outlet property="webView" destination="Q7F-OI-tCo" id="Y7i-HJ-gsF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCK-Q7-t02" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981" y="-685"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1nc-P5-3pP">

@@ -7,8 +7,9 @@
 //
 
 #import "IMSettingsViewController.h"
+#import "IMWebViewController.h"
 
-@interface IMSettingsViewController ()
+@interface IMSettingsViewController () <IMWebViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *clientIDTextField;
 @property (weak, nonatomic) IBOutlet UITextField *apiKeyTextField;
@@ -25,15 +26,19 @@
     self.title = NSLocalizedString(@"Settings", nil);
     self.clientIDTextField.placeholder = NSLocalizedString(@"enter client ID", nil);
     self.apiKeyTextField.placeholder = NSLocalizedString(@"enter API key", nil);
-    
-    NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
-    self.clientIDTextField.text = [defaults valueForKey:@"Client ID"];
-    self.apiKeyTextField.text = [defaults valueForKey:@"API Key"];
 }
 
 
 #pragma mark -
 #pragma mark - Instance methods
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([segue.identifier isEqualToString:@"fetch"]) {
+        IMWebViewController *vc = segue.destinationViewController;
+        [vc setDelegate:self];
+    }
+}
 
 - (BOOL)checkFields {
 
@@ -61,6 +66,26 @@
     }
 }
 
+
+- (void)updateFields {
+
+    NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
+    self.clientIDTextField.text = [defaults valueForKey:@"Client ID"];
+    self.apiKeyTextField.text = [defaults valueForKey:@"API Key"];
+}
+
+
+#pragma mark -
+#pragma mark - IMWebViewControllerDelegate
+
+- (void)webVewControllerDidFetchParams:(NSDictionary *)params {
+
+    NSUserDefaults *defaults =  [NSUserDefaults standardUserDefaults];
+    [defaults setValue:params[@"Client ID"] forKey:@"Client ID"];
+    [defaults setValue:params[@"API Key"] forKey:@"API Key"];
+    [defaults synchronize];
+    [self updateFields];
+}
 
 
 @end
