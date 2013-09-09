@@ -12,4 +12,8 @@
 
 @property (nonatomic) BOOL active;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *adressLabel;
+
+
 @end

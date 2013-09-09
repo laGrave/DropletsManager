@@ -21,10 +21,15 @@
 		B020E58A17A06E1900644E52 /* IMDropletsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B020E58917A06E1900644E52 /* IMDropletsListTableViewController.m */; };
 		B020E59017A06E5300644E52 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B020E58D17A06E5300644E52 /* RequestManager.m */; };
 		B020E59117A06E5300644E52 /* WebAPIHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B020E58F17A06E5300644E52 /* WebAPIHTTPClient.m */; };
+		B07DDB4C17DE30DD000700A7 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07DDB4B17DE30DD000700A7 /* iPhoneStoryboard.storyboard */; };
 		B0A0075C17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A0075B17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m */; };
 		B0A852D917A3010A0065DEE6 /* IMAddDropletTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A852D817A3010A0065DEE6 /* IMAddDropletTableViewController.m */; };
 		B0A852DD17A302660065DEE6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0A852DF17A302660065DEE6 /* Localizable.strings */; };
-		B0A852E617A45FE70065DEE6 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A852E517A45FE70065DEE6 /* iPhoneStoryboard.storyboard */; };
+		DCBE080A17DE01780060CE6C /* IMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBE080917DE01780060CE6C /* IMWebViewController.m */; };
+		DCBE080E17DE01EB0060CE6C /* NSString+SearchAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBE080D17DE01EB0060CE6C /* NSString+SearchAdditions.m */; };
+		DCCF60F517A8DC36000D6D4F /* IMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCF60F417A8DC36000D6D4F /* IMSettingsViewController.m */; };
+		DCCF60FC17A90397000D6D4F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = DCCF60FA17A90397000D6D4F /* settings.png */; };
+		DCCF60FD17A90397000D6D4F /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCCF60FB17A90397000D6D4F /* settings@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,11 +51,12 @@
 		B020E57C17A06CDC00644E52 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B020E57E17A06CDC00644E52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B020E58817A06E1900644E52 /* IMDropletsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDropletsListTableViewController.h; sourceTree = "<group>"; };
-		B020E58917A06E1900644E52 /* IMDropletsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDropletsListTableViewController.m; sourceTree = "<group>"; };
+		B020E58917A06E1900644E52 /* IMDropletsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IMDropletsListTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B020E58C17A06E5300644E52 /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
 		B020E58D17A06E5300644E52 /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
 		B020E58E17A06E5300644E52 /* WebAPIHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebAPIHTTPClient.h; sourceTree = "<group>"; };
 		B020E58F17A06E5300644E52 /* WebAPIHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebAPIHTTPClient.m; sourceTree = "<group>"; };
+		B07DDB4B17DE30DD000700A7 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		B0A0075A17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDropletDetailsTableViewController.h; sourceTree = "<group>"; };
 		B0A0075B17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDropletDetailsTableViewController.m; sourceTree = "<group>"; };
 		B0A852D717A3010A0065DEE6 /* IMAddDropletTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAddDropletTableViewController.h; sourceTree = "<group>"; };
@@ -58,7 +64,14 @@
 		B0A852DA17A3021B0065DEE6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0A852DE17A302660065DEE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0A852E017A3026A0065DEE6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B0A852E517A45FE70065DEE6 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		DCBE080817DE01780060CE6C /* IMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMWebViewController.h; sourceTree = "<group>"; };
+		DCBE080917DE01780060CE6C /* IMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMWebViewController.m; sourceTree = "<group>"; };
+		DCBE080C17DE01EB0060CE6C /* NSString+SearchAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SearchAdditions.h"; sourceTree = "<group>"; };
+		DCBE080D17DE01EB0060CE6C /* NSString+SearchAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SearchAdditions.m"; sourceTree = "<group>"; };
+		DCCF60F317A8DC36000D6D4F /* IMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = IMSettingsViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		DCCF60F417A8DC36000D6D4F /* IMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSettingsViewController.m; sourceTree = "<group>"; };
+		DCCF60FA17A90397000D6D4F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		DCCF60FB17A90397000D6D4F /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,10 +132,12 @@
 			children = (
 				B020E57717A06CDC00644E52 /* IMAppDelegate.h */,
 				B020E57817A06CDC00644E52 /* IMAppDelegate.m */,
-				B0A852E517A45FE70065DEE6 /* iPhoneStoryboard.storyboard */,
+				B07DDB4B17DE30DD000700A7 /* iPhoneStoryboard.storyboard */,
 				B020E58B17A06E5300644E52 /* Networking */,
 				B020E58717A06DFA00644E52 /* ViewControllers */,
 				B014EC6D17A2BAC800F042EE /* Views */,
+				DCBE080B17DE01CF0060CE6C /* Utilities */,
+				DCCF60F917A90397000D6D4F /* Images */,
 				B020E56F17A06CDC00644E52 /* Supporting Files */,
 			);
 			path = DropletsManager;
@@ -152,6 +167,10 @@
 				B0A0075B17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m */,
 				B0A852D717A3010A0065DEE6 /* IMAddDropletTableViewController.h */,
 				B0A852D817A3010A0065DEE6 /* IMAddDropletTableViewController.m */,
+				DCCF60F317A8DC36000D6D4F /* IMSettingsViewController.h */,
+				DCCF60F417A8DC36000D6D4F /* IMSettingsViewController.m */,
+				DCBE080817DE01780060CE6C /* IMWebViewController.h */,
+				DCBE080917DE01780060CE6C /* IMWebViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -165,6 +184,24 @@
 				B020E58F17A06E5300644E52 /* WebAPIHTTPClient.m */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		DCBE080B17DE01CF0060CE6C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DCBE080C17DE01EB0060CE6C /* NSString+SearchAdditions.h */,
+				DCBE080D17DE01EB0060CE6C /* NSString+SearchAdditions.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DCCF60F917A90397000D6D4F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DCCF60FA17A90397000D6D4F /* settings.png */,
+				DCCF60FB17A90397000D6D4F /* settings@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,10 +260,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B020E57317A06CDC00644E52 /* InfoPlist.strings in Resources */,
+				DCCF60FC17A90397000D6D4F /* settings.png in Resources */,
 				B0A852DD17A302660065DEE6 /* Localizable.strings in Resources */,
-				B0A852E617A45FE70065DEE6 /* iPhoneStoryboard.storyboard in Resources */,
 				B020E57B17A06CDC00644E52 /* Default.png in Resources */,
+				DCCF60FD17A90397000D6D4F /* settings@2x.png in Resources */,
 				B020E57D17A06CDC00644E52 /* Default@2x.png in Resources */,
+				B07DDB4C17DE30DD000700A7 /* iPhoneStoryboard.storyboard in Resources */,
 				B020E57F17A06CDC00644E52 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCCF60F517A8DC36000D6D4F /* IMSettingsViewController.m in Sources */,
 				B020E57517A06CDC00644E52 /* main.m in Sources */,
 				B020E57917A06CDC00644E52 /* IMAppDelegate.m in Sources */,
 				B020E58A17A06E1900644E52 /* IMDropletsListTableViewController.m in Sources */,
@@ -277,6 +317,8 @@
 				B020E59117A06E5300644E52 /* WebAPIHTTPClient.m in Sources */,
 				B014EC7017A2BAE000F042EE /* IMDropletTableViewCell.m in Sources */,
 				B0A0075C17A2CCEC00D12A79 /* IMDropletDetailsTableViewController.m in Sources */,
+				DCBE080A17DE01780060CE6C /* IMWebViewController.m in Sources */,
+				DCBE080E17DE01EB0060CE6C /* NSString+SearchAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,8 +408,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8193C1158C4D4D10A44F0500 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vladimir Starkov (L8M6RE5RU3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vladimir Starkov (L8M6RE5RU3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DropletsManager/DropletsManager-Prefix.pch";
 				INFOPLIST_FILE = "DropletsManager/DropletsManager-Info.plist";
@@ -380,7 +422,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8193C1158C4D4D10A44F0500 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DropletsManager/DropletsManager-Prefix.pch";
 				INFOPLIST_FILE = "DropletsManager/DropletsManager-Info.plist";

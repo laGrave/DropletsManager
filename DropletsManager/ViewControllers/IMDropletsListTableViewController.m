@@ -10,15 +10,15 @@
 #import "RequestManager.h"
 #import "IMDropletTableViewCell.h"
 #import "IMDropletDetailsTableViewController.h"
+#import "IMSettingsViewController.h"
 
-@interface IMDropletsListTableViewController () <UIAlertViewDelegate>
+@interface IMDropletsListTableViewController () <UIAlertViewDelegate, IMSettingsViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *droplets;
 
 @end
 
 @implementation IMDropletsListTableViewController
-
 
 - (void)viewDidLoad {
     
@@ -33,7 +33,16 @@
 - (void)viewDidAppear:(BOOL)animated {
 
     [super viewDidAppear:animated];
-    [self refresh:nil];
+    
+    if ([self checkForAPIKeys]) {
+        [self refresh:nil];
+    }
+    else {
+        IMSettingsViewController *SettingsVC = [self.storyboard instantiateViewControllerWithIdentifier:[[IMSettingsViewController class] description]];
+        SettingsVC.delegate = self;
+        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:SettingsVC];
+        [self presentViewController:navVC animated:YES completion:NULL];
+    }
 }
 
 
@@ -46,12 +55,28 @@
 #pragma mark -
 #pragma mark - instance methods
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([segue.identifier isEqualToString:@"Show settings"]) {
+        UINavigationController *navVC = segue.destinationViewController;
+        IMSettingsViewController *settingsVC = (IMSettingsViewController *)navVC.topViewController;
+        settingsVC.delegate = self;
+    }
+}
+
+- (BOOL)checkForAPIKeys {
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return ([[defaults valueForKey:@"Client ID"] length] && [[defaults valueForKey:@"API Key"] length]);
+}
+
+
 - (void)refresh:(UIRefreshControl *)refresh {
 
     [[RequestManager sharedItem] getDropletsListWithCompletionBlock:^(id JSON){
         NSLog(@"%@", JSON);
         self.droplets = JSON;
-//        [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
         [refresh endRefreshing];
     }];
 }
@@ -76,8 +101,8 @@
     
     NSDictionary *droplet = [self.droplets objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = droplet[@"name"];
-    cell.detailTextLabel.text = droplet[@"ip_address"];
+    cell.titleLabel.text = droplet[@"name"];
+    cell.adressLabel.text = droplet[@"ip_address"];
     cell.active = ([droplet[@"status"] isEqualToString:@"active"]) ? YES : NO;
     
     return cell;
@@ -110,7 +135,7 @@
     NSDictionary *droplet = [self.droplets objectAtIndex:indexPath.row];
     
     IMDropletDetailsTableViewController *dropletDetailsTableVC = [self.storyboard instantiateViewControllerWithIdentifier:[[IMDropletDetailsTableViewController class] description]];
-    dropletDetailsTableVC.dropletID = droplet[@"id"];
+    dropletDetailsTableVC.dropletDict = droplet;
     [self.navigationController pushViewController:dropletDetailsTableVC animated:YES];
 }
 
@@ -128,6 +153,17 @@
 //            [self.tableView reloadData];
         }];
     }
+}
+
+
+#pragma mark -
+#pragma mark - IMSettingsViewControllerDelegate
+
+- (void)SettingsVCShouldDismiss:(IMSettingsViewController *)SettingsVC {
+
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self refresh:nil];
+    }];
 }
 
 @end

@@ -14,7 +14,6 @@
 
 @interface IMDropletDetailsTableViewController ()
 
-@property (nonatomic, strong) NSDictionary *dropletDict;
 @property (nonatomic, strong) NSDictionary *imageDict;
 
 @end
@@ -40,11 +39,13 @@
 
 - (void)updateDropletInfo {
 
-    [[RequestManager sharedItem] getDetailsForDropletWithIdentifier:self.dropletID
+    self.title = self.dropletDict[@"name"];
+    [self updateInfoForImageWithIdentifier:self.dropletDict[@"image_id"]];
+    [[RequestManager sharedItem] getDetailsForDropletWithIdentifier:self.dropletDict[@"id"]
                                                     completionBlock:^(id JSON){
                                                         self.dropletDict = JSON;
-                                                        self.title = JSON[@"name"];
-                                                        [self updateInfoForImageWithIdentifier:JSON[@"image_id"]];
+//                                                        [self updateInfoForImageWithIdentifier:JSON[@"image_id"]];
+                                                        [self.tableView reloadData];
                                                     }];
 }
 
@@ -143,6 +144,7 @@
                                                        completionBlock:^(id JSON){
                                                            [self updateDropletInfo];
                                                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                                                           [self.navigationController popViewControllerAnimated:YES];
                                                        }];
         }
         else {
@@ -150,6 +152,7 @@
                                                      completionBlock:^(id JSON){
                                                          [self updateDropletInfo];
                                                          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                                                         [self.navigationController popViewControllerAnimated:YES];
                                                      }];
         }
     }
@@ -159,7 +162,11 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.section == 1) {
-        NSString *text = @"This method allows you to shutdown a running droplet. The droplet will remain in your account.";
+        NSString *text = @"";
+        if ([self dropletIsActive])
+            text = NSLocalizedString(@"This method allows you to shutdown a running droplet. The droplet will remain in your account.", nil);
+        else text = NSLocalizedString(@"This method allows you to poweron a powered off droplet.", nil);
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:text delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }

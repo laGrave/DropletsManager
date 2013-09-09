@@ -14,8 +14,6 @@
 #define ShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
 #define HideNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
 
-static NSString *clientID = @"3tcH8MRj9UFulGyVxGAyU";
-static NSString *apiKey = @"NpCMfDcwH10823sbvbqqh0hnet66hVo84pLht6g3J";
 static RequestManager *_sharedItem;
 
 @interface RequestManager ()<NSXMLParserDelegate>
@@ -34,14 +32,29 @@ static RequestManager *_sharedItem;
     return _sharedItem;
 }
 
-#pragma mark - requests
 
+#pragma mark -
+#pragma mark - getters
+
+- (NSString *)clientID {
+
+    return [[NSUserDefaults standardUserDefaults] valueForKey:@"Client ID"];
+}
+
+
+- (NSString *)apiKey {
+
+    return [[NSUserDefaults standardUserDefaults] valueForKey:@"API Key"];
+}
+
+
+#pragma mark - requests
 
 - (void)sendGetRequestWithPath:(NSString *)path
                     parameters:(NSDictionary *)parameters
                completionBlock:(void(^)(id JSON))completionBlock {
 
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"client_id" : clientID, @"api_key" : apiKey}];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"client_id" : [self clientID], @"api_key" : [self apiKey]}];
     if (parameters)
         [params setValuesForKeysWithDictionary:parameters];
     WebAPIHTTPClient *client = [WebAPIHTTPClient sharedClient];
