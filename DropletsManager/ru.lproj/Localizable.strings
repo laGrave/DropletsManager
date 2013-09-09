@@ -21,3 +21,7 @@
 "Settings" = "Настройки";
 "enter client ID" = "введите client ID";
 "enter API key" = "введите API key";
+
+//web view controller
+"Fetch" = "Выбрать";
+"Searching" = "Поиск";

@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *fetchBarButtonItem;
 @property (nonatomic, strong) NSDictionary *params;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -29,11 +30,41 @@
     self.webView.delegate = self;
     self.webView.scalesPageToFit = YES;
     [self.webView loadRequest:request];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                  target:self
+                                                selector:@selector(updateLabel)
+                                                userInfo:nil repeats:YES];
 }
 
 
 #pragma mark -
 #pragma mark - Instance methods
+
+- (void)updateLabel {
+
+    static int i = 0;
+    NSString *dots = nil;
+    switch (i) {
+        case 1:
+            dots = @".";
+            break;
+        case 2:
+            dots = @"..";
+            break;
+        case 3:
+            dots = @"...";
+            break;
+        default:
+            dots = @"";
+            break;
+    }
+    
+    self.title = [NSString stringWithFormat:@"%@%@", NSLocalizedString(@"Searching", nil), dots];
+
+    if (i == 3) i = 0;
+    else i++;
+}
 
 
 - (IBAction)fetchButtonPressed:(id)sender {
@@ -64,8 +95,10 @@
     if (clientID.length && apiKey.length) {
         NSLog(@"client id : %@", clientID);
         NSLog(@"api key: %@", apiKey);
+        [self.timer invalidate];
+        self.title = @"";
         self.params = @{@"Client ID" : clientID, @"API Key" : apiKey};
-        self.fetchBarButtonItem.title = @"Fetch";
+        self.fetchBarButtonItem.title = NSLocalizedString(@"Fetch", nil);
     }
 }
 

@@ -21,3 +21,7 @@
 "Settings" = "Settings";
 "enter client ID" = "enter client ID";
 "enter API key" = "enter API key";
+
+//web view controller
+"Fetch" = "Fetch";
+"Searching" = "Seaching";
