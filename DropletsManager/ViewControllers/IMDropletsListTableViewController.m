@@ -14,7 +14,8 @@
 
 @interface IMDropletsListTableViewController () <UIAlertViewDelegate, IMSettingsViewControllerDelegate>
 
-@property (nonatomic, strong) NSArray *droplets;
+@property (nonatomic, strong) NSMutableArray *droplets;
+@property (nonatomic, strong) NSIndexPath *selectedDropletIndexPath;
 
 @end
 
@@ -75,7 +76,7 @@
 
     [[RequestManager sharedItem] getDropletsListWithCompletionBlock:^(id JSON){
         NSLog(@"%@", JSON);
-        self.droplets = JSON;
+        self.droplets = [NSMutableArray arrayWithArray:JSON];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
         [refresh endRefreshing];
     }];
@@ -101,8 +102,12 @@
     
     NSDictionary *droplet = [self.droplets objectAtIndex:indexPath.row];
     
-    cell.titleLabel.text = droplet[@"name"];
-    cell.adressLabel.text = droplet[@"ip_address"];
+    if (droplet[@"name"] != [NSNull null])
+        cell.titleLabel.text = droplet[@"name"];
+    else cell.titleLabel.text = @"";
+    if (droplet[@"ip_address"] != [NSNull null])
+        cell.adressLabel.text = droplet[@"ip_address"];
+    else cell.adressLabel.text = @"";
     cell.active = ([droplet[@"status"] isEqualToString:@"active"]) ? YES : NO;
     
     return cell;
@@ -118,6 +123,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
  
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        self.selectedDropletIndexPath = indexPath;
         UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Вы уверены, что хотите удалить данный сервер?" delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
         deleteAlert.tag = indexPath.row;
         [deleteAlert show];
@@ -146,12 +152,16 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 
     if (buttonIndex == alertView.firstOtherButtonIndex) {
-//        [self.table deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:alertView.tag inSection:0]]
-//                              withRowAnimation:UITableViewRowAnimationFade];
         NSDictionary *dropletDict = [self.droplets objectAtIndex:alertView.tag];
         [[RequestManager sharedItem] destroyDropletWithIdentifier:dropletDict[@"id"] completionBlock:^(id JSON){
-//            [self.tableView reloadData];
-        }];
+            [self refresh:nil];
+        }
+                                                     failureBlock:^(id JSON){
+                                                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:JSON[@"message"]
+                                                                                                        delegate:nil cancelButtonTitle:@"OK"
+                                                                                               otherButtonTitles:nil];
+                                                         [alert show];
+                                                     }];
     }
 }
 

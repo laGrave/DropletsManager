@@ -75,7 +75,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FZz-X2-z1c">
                             <connections>
-                                <segue destination="qZE-dh-fMf" kind="modal" id="364-Px-vU4"/>
+                                <segue destination="qZE-dh-fMf" kind="modal" identifier="add" id="364-Px-vU4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

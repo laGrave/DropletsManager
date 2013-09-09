@@ -93,7 +93,7 @@
         switch (indexPath.row) {
             case 0:
                 titleText = @"IP";
-                subtitleText = self.dropletDict[@"ip_address"];
+                subtitleText = (self.dropletDict[@"ip_address"] != [NSNull null]) ? self.dropletDict[@"ip_address"] : @"";
                 break;
             case 1:
                 titleText = NSLocalizedString(@"Status", nil);

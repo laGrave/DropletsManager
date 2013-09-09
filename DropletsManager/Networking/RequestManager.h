@@ -34,7 +34,8 @@
                    sshKeys:(NSArray *)sshKeys
            completionBlock:(void (^)(id))completionBlock;
 - (void)destroyDropletWithIdentifier:(NSString *)identifier
-                     completionBlock:(void(^)(id JSON))completionBlock;
+                     completionBlock:(void(^)(id JSON))completionBlock
+                        failureBlock:(void(^)(id JSON))failureBlock;
 - (void)shutdownDropletWithIdentifier:(NSString *)identifier
                       completionBlock:(void(^)(id JSON))completionBlock;
 - (void)powerOnDropletWithIdentifier:(NSString *)identifier

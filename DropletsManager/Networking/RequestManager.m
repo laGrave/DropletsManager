@@ -66,7 +66,6 @@ static RequestManager *_sharedItem;
         completionBlock(JSON);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON){
         NSLog(@"error while getting info from server: %@", error);
-        completionBlock(nil);
     }];
     [operation start];
 }
@@ -172,15 +171,18 @@ static RequestManager *_sharedItem;
 
 
 - (void)destroyDropletWithIdentifier:(NSString *)identifier
-                     completionBlock:(void(^)(id JSON))completionBlock {
+                     completionBlock:(void(^)(id JSON))completionBlock
+                        failureBlock:(void(^)(id JSON))failureBlock {
 
     [self sendGetRequestWithPath:[NSString stringWithFormat:@"droplets/%@/destroy/?", identifier]
                       parameters:nil completionBlock:^(id JSON){
+                          NSLog(@"destroy droplet status message: %@", JSON);
         NSString *status = JSON[@"status"];
         if ([status isEqualToString:@"OK"]) {
             completionBlock(JSON[@"event_id"]);
         }
-    }];
+        else failureBlock(JSON);
+                      }];
 }
 
 

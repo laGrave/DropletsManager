@@ -32,6 +32,15 @@
     // Configure the view for the selected state
 }
 
+
+- (void)prepareForReuse {
+
+    [super prepareForReuse];
+    
+    self.titleLabel.text = @"";
+    self.adressLabel.text = @"";
+}
+
 - (void)setActive:(BOOL)active {
 
     _active = active;
