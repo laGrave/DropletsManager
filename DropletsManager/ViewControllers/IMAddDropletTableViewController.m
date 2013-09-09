@@ -71,13 +71,13 @@
 #pragma mark - Instance methods
 
 
-- (void)showPickerWIthTag:(NSUInteger)tag senderButton:(UIButton *)senderButton {
+- (void)showPickerWithTag:(NSUInteger)tag senderButton:(UIButton *)senderButton {
 
     UIPickerView *pickerView = [[UIPickerView alloc] init];
     pickerView.tag = tag;
     pickerView.dataSource = self;
     pickerView.delegate = self;
-    pickerView.backgroundColor = [UIColor brownColor];
+//    pickerView.backgroundColor = [UIColor grayColor];
     pickerView.opaque = YES;
     
     __block CGRect pickerViewFrame = pickerView.frame;
@@ -117,23 +117,30 @@
 
 - (IBAction)selectButtonPressed:(UIButton *)sender {
     
-    self.activeSelectButton = sender;
-    
-    switch (sender.tag) {
-        case 1:
-            self.activeEnterButton = self.enterSizeButton;
-            break;
-        case 2:
-            self.activeEnterButton = self.enterImageButton;
-            break;
-        case 3:
-            self.activeEnterButton = self.enterRegionButton;
-            break;
-        default:
-            break;
+    if (!self.pickerView) {
+        self.activeSelectButton = sender;
+        NSDictionary *dict = nil;
+        
+        switch (sender.tag) {
+            case 1:
+                self.activeEnterButton = self.enterSizeButton;
+                dict = self.sizesArray[0];
+                break;
+            case 2:
+                self.activeEnterButton = self.enterImageButton;
+                dict = self.imagesArray[0];
+                break;
+            case 3:
+                self.activeEnterButton = self.enterRegionButton;
+                dict = self.regionsArray[0];
+                break;
+            default:
+                break;
+        }
+        
+        [self.activeSelectButton setTitle:dict[@"name"] forState:UIControlStateNormal];
+        [self showPickerWithTag:sender.tag senderButton:sender];
     }
-    
-    [self showPickerWIthTag:sender.tag senderButton:sender];
 }
 
 

@@ -9,7 +9,7 @@
 #import "IMSettingsViewController.h"
 #import "IMWebViewController.h"
 
-@interface IMSettingsViewController () <IMWebViewControllerDelegate>
+@interface IMSettingsViewController () <IMWebViewControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *clientIDTextField;
 @property (weak, nonatomic) IBOutlet UITextField *apiKeyTextField;
@@ -26,6 +26,8 @@
     self.title = NSLocalizedString(@"Settings", nil);
     self.clientIDTextField.placeholder = NSLocalizedString(@"enter client ID", nil);
     self.apiKeyTextField.placeholder = NSLocalizedString(@"enter API key", nil);
+    self.clientIDTextField.delegate = self;
+    self.apiKeyTextField.delegate = self;
     
     [self updateFields];
 }
@@ -87,6 +89,16 @@
     [defaults setValue:params[@"API Key"] forKey:@"API Key"];
     [defaults synchronize];
     [self updateFields];
+}
+
+
+#pragma mark -
+#pragma mark - UITextFieldDelegate 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+
+    [textField resignFirstResponder];
+    return YES;
 }
 
 

@@ -154,7 +154,9 @@
     if (buttonIndex == alertView.firstOtherButtonIndex) {
         NSDictionary *dropletDict = [self.droplets objectAtIndex:alertView.tag];
         [[RequestManager sharedItem] destroyDropletWithIdentifier:dropletDict[@"id"] completionBlock:^(id JSON){
-            [self refresh:nil];
+            [self.droplets removeObjectAtIndex:self.selectedDropletIndexPath.row];
+            self.selectedDropletIndexPath = nil;
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
         }
                                                      failureBlock:^(id JSON){
                                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:JSON[@"message"]
