@@ -51,7 +51,7 @@
     [[RequestManager sharedItem] getDropletsListWithCompletionBlock:^(id JSON){
         NSLog(@"%@", JSON);
         self.droplets = JSON;
-        [self.tableView reloadData];
+//        [self.tableView reloadData];
         [refresh endRefreshing];
     }];
 }
@@ -125,7 +125,7 @@
 //                              withRowAnimation:UITableViewRowAnimationFade];
         NSDictionary *dropletDict = [self.droplets objectAtIndex:alertView.tag];
         [[RequestManager sharedItem] destroyDropletWithIdentifier:dropletDict[@"id"] completionBlock:^(id JSON){
-            [self.tableView reloadData];
+//            [self.tableView reloadData];
         }];
     }
 }

@@ -74,6 +74,8 @@
     pickerView.tag = tag;
     pickerView.dataSource = self;
     pickerView.delegate = self;
+    pickerView.backgroundColor = [UIColor brownColor];
+    pickerView.opaque = YES;
     
     __block CGRect pickerViewFrame = pickerView.frame;
     pickerViewFrame.origin.y = self.view.bounds.size.height;
